@@ -20,6 +20,8 @@ if __name__=="__main__":
 
     if Watson.initiate_conversation:
         while flag<5:
+            Watson.partner_name = Holmes.name
+            Holmes.partner_name = Watson.name
             w = Watson.chat(h)
             h = Holmes.chat(w)
             flag+=1

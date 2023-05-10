@@ -75,8 +75,9 @@ class MemoryStream:
     return top_memory_objects
 
 class Agent(object):
-    def __init__(self, name,context = None, prompt=None, initiate_conversation = False):
+    def __init__(self, name,partner_name = None, context = None, prompt=None, initiate_conversation = False):
         self.name = name
+        self.partner_name = partner_name
         self.memory_stream = MemoryStream()
         self.model = "gpt-3.5-turbo"
         self.context = context
@@ -85,28 +86,28 @@ class Agent(object):
 
 
     def chat(self,prompt=None):
-
-        # if prompt is not None and self.initiate_conversation == False:
-        # prompt = "Adam said, '{}'".format(prompt)
+        response = ""
         messages = [{'role': 'system','content': self.context}]
         if self.initiate_conversation and prompt == None:
             response = get_completion_from_messages(messages)
             self.initiate_conversation = False
-            self.memory_stream.add_memory_object(datetime.datetime.now(), "You have said: '{}' to Watson".format(response))
+            self.memory_stream.add_memory_object(datetime.datetime.now(), "You have said: '{}' to {}".format(response,self.partner_name))
         else:
+            if "You have said" in response:
+               response = response.replace("You have said","")
             if len(self.memory_stream.memory_objects)>0:
                 relevant_mems = self.memory_stream.retrieve_memory_objects(query_memory = prompt, context_window_size = 2)
                 for mem in relevant_mems:
-                    messages.append({'role':'system','content': "You have said, '{}' to Watson".format(mem.text)})
-                messages.append({'role': 'system','content': "Watson has said, '{}' to you.".format(prompt)})
+                    messages.append({'role':'system','content': "You have said, '{}' to {}".format(mem.text,self.partner_name)})
+                messages.append({'role': 'system','content': "{} has said, '{}' to you.".format(self.partner_name,prompt)})
                 response = get_completion_from_messages(messages)
 
             else:
-                messages.append({'role': 'system','content': "Watson has said, '{}' to you.".format(prompt)})
+                messages.append({'role': 'system','content': "{} has said, '{}' to you.".format(self.partner_name,prompt)})
                 response = get_completion_from_messages(messages)
 
-        self.memory_stream.add_memory_object(datetime.datetime.now(),  "Watson has said, '{}' to you.".format(prompt))
-        self.memory_stream.add_memory_object(datetime.datetime.now(), "You have said: '{}' to Watson".format(response))
+        self.memory_stream.add_memory_object(datetime.datetime.now(),  "{} has said, '{}' to you.".format(self.partner_name,prompt))
+        self.memory_stream.add_memory_object(datetime.datetime.now(), "You have said: '{}' to {}".format(response, self.partner_name))
         print(response)
 
         return response

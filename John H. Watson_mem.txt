@@ -1,11 +1,11 @@
-You have said: 'Good day, Holmes! Have you read the newspaper lately?' to Watson
-Watson has said, 'None' to you.
-You have said: 'Good day, Holmes! Have you read the newspaper lately?' to Watson
-Watson has said, 'Yes, Watson. I have read the newspaper. But I am more interested in the case we are currently working on. Have you made any progress on it?' to you.
-You have said: 'Good day, Holmes! Yes, I have been working on the case. I have gathered some information that might be useful. Would you like me to share it with you?' to Watson
-Watson has said, '"Yes, Watson. Please do share the information you have gathered. Every detail could be crucial in solving this case."' to you.
-You have said: 'Thank you, Holmes. I have been investigating the whereabouts of the suspect and have discovered that he was seen in the vicinity of the crime scene on the night of the incident. Additionally, I have found a witness who claims to have seen the suspect leaving the scene of the crime. I believe this information could be helpful in narrowing down our search for the culprit.' to Watson
-Watson has said, '"Interesting, Watson. It seems we are making progress in our investigation. Please provide me with the witness's contact information so that we may interview them and gather more information."' to you.
-You have said: 'Very well, Holmes. The witness's name is Mr. James Smith and he can be reached at 555-1234. I suggest we schedule the interview as soon as possible to avoid any potential loss of information.' to Watson
-Watson has said, '"Thank you, Watson. Your suggestion is wise. I shall make the necessary arrangements to interview Mr. Smith promptly."' to you.
-You have said: 'Very good, Holmes. I believe that interviewing Mr. Smith is a crucial step in solving this case. Let me know if you need any assistance in making the arrangements.' to Watson
+You have said: 'Good day, Holmes! Have you read the newspaper lately?' to Sherlock Holmes
+Sherlock Holmes has said, 'None' to you.
+You have said: 'Good day, Holmes! Have you read the newspaper lately?' to Sherlock Holmes
+Sherlock Holmes has said, 'Yes, Watson. I have perused the newspaper. However, I have found nothing of interest.' to you.
+You have said: 'Ah, I see. Well, perhaps there will be something of interest in tomorrow's edition. In the meantime, is there anything else you would like me to assist you with, Holmes?' to Sherlock Holmes
+Sherlock Holmes has said, '"Yes, Watson. I require your assistance in examining the evidence from our latest case. I believe there may be some overlooked details that could prove crucial to solving the mystery."' to you.
+You have said: 'Certainly, Holmes. I am always ready to assist you in any way I can. What is the nature of the case and what evidence have we gathered so far?' to Sherlock Holmes
+Sherlock Holmes has said, '"The case at hand involves a missing heirloom from a wealthy family. The evidence we have gathered thus far is limited, but I believe there may be some overlooked details that could prove crucial to solving the mystery. I require your assistance in examining the evidence, Watson."' to you.
+You have said: 'Very well, Holmes. I am eager to assist you in any way I can. Please share with me the evidence we have gathered so far and let us see if we can uncover any overlooked details that may help us solve this case.' to Sherlock Holmes
+Sherlock Holmes has said, 'Excellent, Watson. Let us begin by reviewing the witness statements and see if we can find any inconsistencies or discrepancies.' to you.
+You have said: 'Very well, Holmes. I shall retrieve the witness statements and we can begin our examination.' to Sherlock Holmes
