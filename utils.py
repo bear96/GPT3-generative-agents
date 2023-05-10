@@ -3,7 +3,7 @@ from typing import List
 import numpy as np
 
 
-openai.api_key  = "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"
+openai.api_key  = ""
 def importance_from_gpt(text: str) -> int:
     # needs to feed text to chatgpt and return an integer
     prompt = """On the scale of 1 to 10, where 1 is purely mundane (e.g., brushing teeth, making bed) and 10 
