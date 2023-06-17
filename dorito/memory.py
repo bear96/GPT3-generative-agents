@@ -89,7 +89,7 @@ class MemoryStream:
   def clear_memory(self):
     self.memory_objects.clear()
 
-  def _get_topics_of_reflection(self, self.sort_by_importance = False, k = 50):
+  def _get_topics_of_reflection(self, k = 50):
     if self.sort_by_importance:
       imp_mem_objects = sorted(self.memory_objects, key=lambda x: x.importance, reverse=True)
       reflection_memories = imp_mem_objects[:k]
