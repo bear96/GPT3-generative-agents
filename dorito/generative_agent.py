@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-from utils import *
+from .utils import *
 
 class GenerativeAgent(object):
 

@@ -4,7 +4,7 @@ import math
 import numpy as np
 from typing import List, Tuple
 from sklearn.preprocessing import MinMaxScaler
-from utils import *
+from .utils import *
 import re
 
 
