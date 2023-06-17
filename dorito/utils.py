@@ -7,7 +7,6 @@ def get_embedding(text, model="text-embedding-ada-002"):
     embedding = openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
     return embedding
 
-<<<<<<< HEAD
 def get_importance(text):
     prompt = "On the scale of 1 to 10, where 1 is purely mundane"
     + " (e.g., brushing teeth, making bed) and 10 is"
@@ -31,19 +30,6 @@ def get_importances(text):
     + "\nRating: "
     score_list = get_completion_from_messages(prompt)
     return [int(x) for x in score_list]
-=======
-openai.api_key  = ""
-def importance_from_gpt(text: str) -> int:
-    # needs to feed text to chatgpt and return an integer
-    prompt = """On the scale of 1 to 10, where 1 is purely mundane (e.g., brushing teeth, making bed) and 10 
-        is extremely poignant (e.g., a break up, college 
-        acceptance), rate the likely poignancy of the following piece of memory. Make sure no matter what the circumstances are,
-        you provide a number only. Nothing else.
-        Memory: {} 
-        Rating: <fill in>""".format(text)
-    importance = get_completion(prompt)
-    return int(importance)
->>>>>>> b9321b96f966eb255293743885d71b76b14fe908
 
 def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
     messages = [{"role": "user", "content": prompt}]
