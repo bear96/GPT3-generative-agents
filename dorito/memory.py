@@ -97,10 +97,10 @@ class MemoryStream:
       imp_mem_objects = self.memory_objects[:k]
 
     observation_str = "\n".join([x.text for x in reflection_memories])
-    prompt = f"{observation_str}\n\n"
-    +"Given only the information above, what are the 3 most salient "
-    +"high-level questions we can answer about the subjects in the statements?\n"
-    +"Provide each question on a new line."
+    prompt = f"{observation_str}\n\n"\
+    +"Given only the information above, what are the 3 most salient "\
+    +"high-level questions we can answer about the subjects in the statements?\n"\
+    +"Provide each question on a new line."\
 
     result = get_completion(prompt)
     topics = re.split(r"\n", result.strip())
@@ -110,15 +110,15 @@ class MemoryStream:
   def _get_insights_on_topic(self, topic):
     related_memories = self.retrieve_memory_objects(topic)
     related_statements = "\n".join([m.text for m in related_memories])
-    prompt = f"Statements relevant to: '{topic}'\n"
-      +"---\n"
-      +f"{related_statements}\n"
-      +"---\n"
-      +"What 5 high-level novel insights can you infer from the above statements "
-      +"that are relevant for answering the following question?\n"
-      +"Do not include any insights that are not relevant to the question.\n"
-      +"Do not repeat any insights that have already been made.\n\n"
-      +f"Question: {topic}\n\n"
+    prompt = f"Statements relevant to: '{topic}'\n"\
+      +"---\n"\
+      +f"{related_statements}\n"\
+      +"---\n"\
+      +"What 5 high-level novel insights can you infer from the above statements "\
+      +"that are relevant for answering the following question?\n"\
+      +"Do not include any insights that are not relevant to the question.\n"\
+      +"Do not repeat any insights that have already been made.\n\n"\
+      +f"Question: {topic}\n\n"\
       +"(example format: insight (because of 1, 5, 3))"
     result = get_completion(prompt)
     insights = re.split(r"\n", result.strip())
