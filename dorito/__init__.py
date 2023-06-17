@@ -2,7 +2,7 @@
 
 from memory import MemoryObject, MemoryStream
 from generative_agent import GenerativeAgent
-from utils import *
+from utils import get_embedding,get_importance,get_importances,get_completion,cosine_similarity
 
 __all__ = [
     "GenerativeAgent", 
