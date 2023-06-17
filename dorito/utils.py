@@ -8,25 +8,25 @@ def get_embedding(text, model="text-embedding-ada-002"):
     return embedding
 
 def get_importance(text):
-    prompt = "On the scale of 1 to 10, where 1 is purely mundane"
-    + " (e.g., brushing teeth, making bed) and 10 is"
-    + " extremely important (e.g., a break up, college"
-    + " acceptance), rate the likely importance of the"
-    + " following piece of memory. Respond with a single integer."
-    + f"\nMemory: {text}"
+    prompt = "On the scale of 1 to 10, where 1 is purely mundane"\
+    + " (e.g., brushing teeth, making bed) and 10 is"\
+    + " extremely important (e.g., a break up, college"\
+    + " acceptance), rate the likely importance of the"\
+    + " following piece of memory. Respond with a single integer."\
+    + f"\nMemory: {text}"\
     + "\nRating: "
     score = int(get_completion_from_messages(prompt))
     return score
 
 def get_importances(text):
-    prompt = "On the scale of 1 to 10, where 1 is purely mundane"
-    +" (e.g., brushing teeth, making bed) and 10 is"
-    + " extremely important (e.g., a break up, college"
-    + " acceptance), rate the likely importances of the"
-    + " following pieces of memories. Always answer with only a list of numbers."
-    + " If just given one memory still respond in a list."
-    + " Memories are separated by semicolons (;)"
-    + f"\Memories: {text}"
+    prompt = "On the scale of 1 to 10, where 1 is purely mundane"\
+    +" (e.g., brushing teeth, making bed) and 10 is"\
+    + " extremely important (e.g., a break up, college"\
+    + " acceptance), rate the likely importances of the"\
+    + " following pieces of memories. Always answer with only a list of numbers."\
+    + " If just given one memory still respond in a list."\
+    + " Memories are separated by semicolons (;)"\
+    + f"\Memories: {text}"\
     + "\nRating: "
     score_list = get_completion_from_messages(prompt)
     return [int(x) for x in score_list]
