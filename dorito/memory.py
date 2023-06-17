@@ -73,7 +73,7 @@ class MemoryStream:
       memory_object.last_access = datetime.datetime.now()
 
     # calculate final retrieval score
-    scores = [(mems.recency, mems.importance, mems.relevance) for mems in self.memory_objects))]
+    scores = [(mems.recency, mems.importance, mems.relevance) for mems in self.memory_objects]
     scaler = MinMaxScaler(feature_range=(0.01, 0.99))
     normalized_scores = scaler.fit_transform(scores)
 
