@@ -15,7 +15,8 @@ def get_importance(text):
     + " following piece of memory. Respond with a single integer."\
     + f"\nMemory: {text}"\
     + "\nRating: "
-    score = int(get_completion_from_messages(prompt))
+    mesages = [{'role':'system','content':prompt}]
+    score = int(get_completion_from_messages(messages))
     return score
 
 def get_importances(text):
@@ -28,17 +29,18 @@ def get_importances(text):
     + " Memories are separated by semicolons (;)"\
     + f"\Memories: {text}"\
     + "\nRating: "
-    score_list = get_completion_from_messages(prompt)
+    mesages = [{'role':'system','content':prompt}]
+    score_list = int(get_completion_from_messages(messages))
     return [int(x) for x in score_list]
 
-def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
-    messages = [{"role": "user", "content": prompt}]
-    response = openai.ChatCompletion.create(
-        model=model,
-        messages=messages,
-        temperature=temperature,
-            )
-    return response.choices[0].message["content"]
+# def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
+#     messages = [{"role": "user", "content": prompt}]
+#     response = openai.ChatCompletion.create(
+#         model=model,
+#         messages=messages,
+#         temperature=temperature,
+#             )
+#     return response.choices[0].message["content"]
 
 def cosine_similarity(vector1, vector2) -> float:
     return np.dot(vector1, vector2)/(np.linalg.norm(vector1) * np.linalg.norm(vector2))
@@ -50,13 +52,4 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
         
         temperature=temperature, # this is the degree of randomness of the model's output
         )
-    return response.choices[0].message["content"]
-
-def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
-    messages = [{"role": "system", "content": prompt}]
-    response = openai.ChatCompletion.create(
-        model=model,
-        messages=messages,
-        temperature=temperature, # this is the degree of randomness of the model's output
-    )
     return response.choices[0].message["content"]
